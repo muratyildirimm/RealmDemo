@@ -1,39 +1,35 @@
-//
-//  ViewController.swift
-//  RealmDemo
-//
-//  Created by Murat Yıldırım on 7.05.2023.
-//
 
 import UIKit
 import RealmSwift
 
+
 class ViewController: UIViewController {
-  
-  
+  // MARK: IBOutlet
   @IBOutlet weak var tableView: UITableView!
   // Open the local-only default realm
   let realm = try! Realm()
   var personList = [Person]()
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-   // savePerson(name: "ahmet", age: 45)
+    savePerson(name: "new2", age: 25)
     renderPerson()
-    
+    // renderPerson()
+    // deleteAllPerson()
   }
-  
   // Fetch all the Person objects
   func renderPerson() {
-    
-      let people = realm.objects(Person.self)
-      for person in people {
-        dump(person)
-        personList.append(person)
-      }
-    
-    
-    
+    let people = realm.objects(Person.self)
+    for person in people {
+      personList.append(person)
+      // dump(person)
+    }
+  }
+  
+  func deleteAllPerson() {
+    realm.beginWrite()
+    realm.delete(realm.objects(Person.self))
+    try! realm.commitWrite()
   }
   
   func savePerson(name: String, age: Int) {
@@ -47,13 +43,8 @@ class ViewController: UIViewController {
     } catch {
       print(error.localizedDescription)
     }
-    
-    // şunu da yapabilirsin.
-    //try! realm.write {
-    // realm.add(todo)
   }
-
-  }
+}
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,9 +56,4 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     personList.count
   }
-  
-  
 }
-
-
-

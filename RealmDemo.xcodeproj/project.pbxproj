@@ -109,15 +109,14 @@
 		13850C4A2A082EB5007BEA44 /* RealmDemo */ = {
 			isa = PBXGroup;
 			children = (
+				13850C882A08452D007BEA44 /* Scene */,
 				13850C802A083060007BEA44 /* Model */,
 				13850C4B2A082EB5007BEA44 /* AppDelegate.swift */,
 				13850C4D2A082EB5007BEA44 /* SceneDelegate.swift */,
-				13850C4F2A082EB5007BEA44 /* ViewController.swift */,
 				13850C512A082EB5007BEA44 /* Main.storyboard */,
 				13850C542A082EB6007BEA44 /* Assets.xcassets */,
 				13850C562A082EB6007BEA44 /* LaunchScreen.storyboard */,
 				13850C592A082EB6007BEA44 /* Info.plist */,
-				13850C852A08358C007BEA44 /* PersonCell.swift */,
 			);
 			path = RealmDemo;
 			sourceTree = "<group>";
@@ -146,6 +145,15 @@
 				13850C832A0830AC007BEA44 /* Person.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		13850C882A08452D007BEA44 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				13850C4F2A082EB5007BEA44 /* ViewController.swift */,
+				13850C852A08358C007BEA44 /* PersonCell.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
